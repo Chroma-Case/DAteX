@@ -21,7 +21,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: ${{ matrix.source }}
-          #TODO Include Font
+          latexmk_use_xelatex: true
           #TODO Check if needed
           #latexmk_shell_escape: true
       - name: Rename output
