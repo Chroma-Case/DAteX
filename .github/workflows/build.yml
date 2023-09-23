@@ -1,13 +1,18 @@
 name: Publish LaTeX documents
 on: [push, pull_request, workflow_dispatch]
-env:
-  USER_DOC_ROOT: user_documentation
-  TECH_DOC_ROOT: tech_documentation
-  SRC_NAME: root.tex
-  USER_OUT: 2024_UD1_Chromacase.pdf
-  TECH_OUT: 2024_TD1_Chromacase.pdf
 jobs:
   build_latex:
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - source: "./user_documentation/root.tex"
+            out: "2024_UD1_Chromacase.pdf"
+            name: "User Documentation"
+          - source: "./tech_documentation/root.tex"
+            out: "2024_TD1_Chromacase.pdf"
+            name: "Technical Documentation"
+    name: "Build ${{ matrix.name }}"
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
@@ -15,21 +20,15 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            $USER_DOC_ROOT/$SRC_NAME
-            $TECH_DOC_ROOT/$SRC_NAME
-          work_in_root_file_dir: true
+          root_file: ${{ matrix.source }}
           #TODO Include Font
           #TODO Check if needed
           #latexmk_shell_escape: true
-      - name: Rename outputs
+      - name: Rename output
         run: |
-          mv $USER_DOC_ROOT/${SRC_NAME/.tex/.pdf} $USER_OUT
-          mv $TECH_DOC_ROOT/${SRC_NAME/.tex/.pdf} $TECH_OUT
+          mv "root.pdf" ${{ matrix.out }}
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: 2024_DA2_Chromacase
-          path: |
-            $USER_OUT
-            $TECH_OUT
+          path: ${{ matrix.out }}
