@@ -1,0 +1,13 @@
+.DS_Store
+
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.pdf
+*.toc
+*.wc
+_minted*
+*.lof
+*.a*
+*.ist
