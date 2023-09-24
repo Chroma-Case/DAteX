@@ -8,20 +8,21 @@
 \usepackage[french]{babel}
 \usepackage{import}
 
+% Utility to import images
+\usepackage{graphicx}
+\graphicspath{{./assets/}}
+
 % Define Headers and footers
 \usepackage{fancyhdr}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{ChromaCase - \docname}
-\fancyfoot[L]{\leftmark}
+\fancyhead[L]{\includegraphics[width=0.25\textwidth]{./icons/full_dark.png}}
+\fancyhead[R]{\docname}
+\fancyfoot[L]{\leftmark} % Name of current section
 \fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
-% Utility to import images
-\usepackage{graphicx}
-\graphicspath{{./assets/}}
 
 % Color Definitions
 \usepackage{xcolor}
