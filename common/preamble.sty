@@ -1,0 +1,81 @@
+% Provides styles and format for documents
+%TC:ignore
+\ProvidesPackage{preamble}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% Utility to import images
+\usepackage{graphicx}
+\graphicspath{{./assets/}}
+
+% Color Definitions
+\usepackage{xcolor}
+
+\definecolor{ccBgDark}{RGB}{41,48,89}
+\definecolor{ccBgLight}{RGB}{96,117,249}
+\definecolor{ccText}{RGB}{255, 255, 255}
+
+% Background color
+\usepackage{background}
+\backgroundsetup{
+	scale=1,
+	angle=0,
+	opacity=1,
+	contents={
+		\begin{tikzpicture}[remember picture,overlay]
+			\node [shading = axis,rectangle, left color=ccBgDark, right color=ccBgLight,shading angle=135, anchor=north, minimum width=\paperwidth, minimum height=29.7cm] (box) at (current page.north){};
+			% This next line allowed to do the same thing, without rotating the gradient
+			%\path [left color =ccBgDark,middle color = ccBgLight, right color = ccBgLight] (current page.north west)rectangle (current page.south east);
+		\end{tikzpicture}
+	}
+}
+
+% Text Color
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+\AtBeginDocument{\globalcolor{ccText}}
+
+% font
+\usepackage{lexend}
+
+% Style
+\usepackage{fancyhdr}
+
+% Title Page
+\newcommand{\titlePage}[1]{
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{\fill}
+			
+			\Huge
+			\textbf{#1}
+			
+			\vspace*{\fill}
+			
+			\Large
+			\textbf{Bilan Documentaire (2)}
+
+			\normalsize
+			\textbf{Décembre 2023}
+
+			\vspace*{\fill}
+			
+			\includegraphics[width=\textwidth]{./icons/full_dark.png}
+			
+			\vspace*{\fill}
+	
+			\includegraphics[width=0.5\textwidth]{./icons/epitech.png}
+
+			\vspace*{\fill}
+
+		\end{center}
+	\end{titlepage}
+	\newpage
+}
+%TC:endignore
