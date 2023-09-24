@@ -6,6 +6,18 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+\usepackage{import}
+
+% Define Headers and footers
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{ChromaCase - \docname}
+\fancyfoot[L]{\leftmark}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 % Utility to import images
 \usepackage{graphicx}
@@ -48,13 +60,13 @@
 \usepackage{fancyhdr}
 
 % Title Page
-\newcommand{\titlePage}[1]{
+\newcommand{\titlePage}{
 	\begin{titlepage}
 		\begin{center}
 			\vspace*{\fill}
 			
 			\Huge
-			\textbf{#1}
+			\textbf{\docname}
 			
 			\vspace*{\fill}
 			
@@ -76,6 +88,14 @@
 
 		\end{center}
 	\end{titlepage}
-	\newpage
 }
+
+% Resume
+
+\newcommand{\resume}[1] {
+	\section*{Résumé}
+	\markboth{Résumé}{}
+	\import{#1}{resume.tex}
+}
+
 %TC:endignore
