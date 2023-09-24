@@ -25,11 +25,17 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Color Definitions
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 
 \definecolor{ccBgDark}{RGB}{41,48,89}
 \definecolor{ccBgLight}{RGB}{96,117,249}
 \definecolor{ccText}{RGB}{255, 255, 255}
+\definecolor{ccRed}{RGB}{237, 74, 81}
+\definecolor{ccOrange}{RGB}{255, 122, 114}
+\definecolor{ccYellow}{RGB}{234, 217, 60}
+\definecolor{ccGreen}{RGB}{115, 214, 151}
+\definecolor{ccBlue}{RGB}{95, 116, 247}
+\definecolor{ccPurple}{RGB}{174, 132, 251}
 
 % Background color
 \usepackage{background}
@@ -97,6 +103,30 @@
 	\section*{Résumé}
 	\markboth{Résumé}{}
 	\import{#1}{resume.tex}
+}
+
+\newcommand{\docdescription}[1] {
+	\section*{Description du document}
+	\markboth{Description du document}{}
+
+	\subsection*{Métadonnée}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{>{\columncolor{ccPurple}}p{0.25\linewidth} p{0.75\linewidth}}
+			\import{#1}{metadata.tex}
+		\end{tabular}
+	\end{table}
+
+	\subsection*{Tableau des révisions}
+	\begin{table}[h]
+		\centering
+		\resizebox{\textwidth}{!} {
+			\begin{tabular}{ccccc}
+				\rowcolor{ccPurple}
+				\import{#1}{revisions.tex}
+			\end{tabular}
+		}
+	\end{table}
 }
 
 %TC:endignore
