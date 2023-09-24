@@ -2,15 +2,16 @@ name: Build and Publish LaTeX documents
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build_latex:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     strategy:
       fail-fast: true
       matrix:
         include:
           - source: "./user_documentation/root.tex"
-            out: "2024_UD1_Chromacase.pdf"
+            out: "2024_UD2_Chromacase.pdf"
             name: "User Documentation"
           - source: "./tech_documentation/root.tex"
-            out: "2024_TD1_Chromacase.pdf"
+            out: "2024_TD2_Chromacase.pdf"
             name: "Technical Documentation"
     name: "Build ${{ matrix.name }}"
     runs-on: ubuntu-latest
@@ -43,6 +44,9 @@ jobs:
         run: svn co "${{ secrets.SVN_URL }}" svn --username '${{ secrets.SVN_UNAME }}' --password '${{ secrets.SVN_PWD }}'
       - name: Move Generated files
         run: mv *.pdf svn/rendu
-      - name: List delivery files
-        run: ls -l svn/rendu
+      - name: Commit files
+        run: |
+          cd svn/rendu
+          svn add --force .;
+          svn commit -m 'DA2: ${{ github.event.head_commit.message }}' --username '${{ secrets.SVN_UNAME }}' --password '${{ secrets.SVN_PWD }}'
 
