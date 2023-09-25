@@ -69,8 +69,8 @@
 % Parse Data
 
 \newcommand{\parseMetadata}[1]{
-	\immediate\write18{"./common/get_latest_revision_date.sh #1"}
-	\immediate\write18{"./common/get_latest_version_number.sh #1"}
+	\immediate\write18{./common/get_latest_revision_date.sh '#1'}
+	\immediate\write18{./common/get_latest_version_number.sh '#1'}
 }
 		
 \newcommand{\latestRevisionDate}[0]{
