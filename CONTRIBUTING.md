@@ -6,9 +6,9 @@ To build one documentation run:
 
 ```bash
 # This command builds the technical documentation
-lualatex  -shell-escape tech_documentation/root.tex
+xelatex  -shell-escape tech_documentation/root.tex
 # This command builds the user documentation
-lualatex  -shell-escape user_documentation/root.tex
+xelatex  -shell-escape user_documentation/root.tex
 ```
 
 The output PDF will be `./root.pdf`

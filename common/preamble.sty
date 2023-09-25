@@ -45,7 +45,7 @@
 	opacity=1,
 	contents={
 		\begin{tikzpicture}[remember picture,overlay]
-			\node [shading = axis,rectangle, left color=ccBgDark, right color=ccBgLight,shading angle=135, anchor=north, minimum width=\paperwidth, minimum height=29.7cm] (box) at (current page.north){};
+			\node [shading = axis,rectangle, left color=ccBgDark, right color=ccBgLight,shading angle=135, anchor=north, minimum width=\paperwidth, minimum height=30cm] (box) at (0, 15){};
 			% This next line allowed to do the same thing, without rotating the gradient
 			%\path [left color =ccBgDark,middle color = ccBgLight, right color = ccBgLight] (current page.north west)rectangle (current page.south east);
 		\end{tikzpicture}
@@ -65,6 +65,21 @@
 
 % Style
 \usepackage{fancyhdr}
+
+% Parse Data
+
+\newcommand{\parseMetadata}[1]{
+	\immediate\write18{"./common/get_latest_revision_date.sh #1"}
+	\immediate\write18{"./common/get_latest_version_number.sh #1"}
+}
+		
+\newcommand{\latestRevisionDate}[0]{
+    \input{revdate.out}
+}
+
+\newcommand{\currentVersion}[0]{
+    \input{version.out}
+}
 
 % Title Page
 \newcommand{\titlePage}{
@@ -105,7 +120,8 @@
 	\import{#1}{resume.tex}
 }
 
-\newcommand{\docdescription}[2] {
+\newcommand{\docdescription}[2] {%
+	\parseMetadata{\dir}
 	\section*{Description du document}
 	\markboth{Description du document}{}
 
@@ -113,15 +129,15 @@
 	\begin{table}[h]
 		\centering
 		\begin{tabular}{>{\columncolor{ccPurple}}p{0.25\linewidth} p{0.75\linewidth}}
-			Titre               & Bilan Documentaire (DA2) - \docname                                    \\
-			Objet               & \docname                                                               \\
-			Author              & Arthur JAMET                                                                          \\
-			Responsable         & Zoe Roux                                                                              \\
-			Email               & zoe1.roux@epitech.eu                                                                  \\
-			Mots-clés           & #2 \\
-			Promotion           & 2024                                                                                  \\
-			Date de mise à jour & 13-08-2023                                                                            \\
-			Version du modèle   & 1.0
+			Titre               & Bilan Documentaire (DA2) - \docname \\
+			Objet               & \docname                  \\
+			Author              & Arthur JAMET              \\
+			Responsable         & Zoe Roux                  \\
+			Email               & zoe1.roux@epitech.eu      \\
+			Mots-clés           & \import{#1}{keywords.tex}	\\
+			Promotion           & 2024                      \\
+			Date de mise à jour & \latestRevisionDate       \\
+			Version du modèle   & \currentVersion
 		\end{tabular}
 	\end{table}
 
