@@ -105,7 +105,7 @@
 	\import{#1}{resume.tex}
 }
 
-\newcommand{\docdescription}[1] {
+\newcommand{\docdescription}[2] {
 	\section*{Description du document}
 	\markboth{Description du document}{}
 
@@ -113,7 +113,15 @@
 	\begin{table}[h]
 		\centering
 		\begin{tabular}{>{\columncolor{ccPurple}}p{0.25\linewidth} p{0.75\linewidth}}
-			\import{#1}{metadata.tex}
+			Titre               & Bilan Documentaire (DA2) - \docname                                    \\
+			Objet               & \docname                                                               \\
+			Author              & Arthur JAMET                                                                          \\
+			Responsable         & Zoe Roux                                                                              \\
+			Email               & zoe1.roux@epitech.eu                                                                  \\
+			Mots-clés           & #2 \\
+			Promotion           & 2024                                                                                  \\
+			Date de mise à jour & 13-08-2023                                                                            \\
+			Version du modèle   & 1.0
 		\end{tabular}
 	\end{table}
 
