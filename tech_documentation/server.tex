@@ -1,0 +1,29 @@
+Le code source du server est dans le dossier \texttt{./back}. Le serveur est développé en TypeScript, avec le framework NestJS.
+\\\\
+L’ORM utilisé est Prisma. La définition des schéma se trouve dans \texttt{./prisma/schema.prisma}. (cf. Section “Base de données”).
+\\\\
+L’application est basée sur l'injection de dépendances. Les modules sont les suivants:
+
+\begin{itemize}
+	\item \texttt{UsersModule}
+	\item \texttt{PrismaModule}
+	\item \texttt{AuthModule}
+	\item \texttt{SongModule}
+	\item \texttt{LessonModule}
+	\item \texttt{GenreModule}
+	\item \texttt{ArtistModule}
+	\item \texttt{AlbumModule}
+	\item \texttt{SearchModule}
+	\item \texttt{SettingsModule}
+	\item \texttt{HistoryModule}
+\end{itemize}
+
+
+Excepté pour le \texttt{PrismaModule} et le \texttt{AuthModule}, chaque module expose un controller et un service de type CRUD.
+Le \texttt{PrismaModule} est chargé de la connexion avec la base de données. Le \texttt{AuthModule} est responsable de l'authentification de l’utilisateur qui fait la requête en utilisant un JWT fourni avec cette dernière.
+\\\\
+La documentation de l’API du serveur se présente sous la forme d’un Swagger accessible depuis \href{https://nightly.chroma.octohub.app/api/api/#}{https://nightly.chroma.octohub.app/api/api/\#}
+\\\\
+La gestion des paquets se fait avec NPM.
+\\\\
+Les tests du serveur sont des tests End-To-End (E2E) faits en Robot, qui testent les méthodes de CRUD (Creation, Read, Update, Delete) des controllers. 
