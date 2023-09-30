@@ -1,1 +1,1 @@
-cat "$1"/revisions.tex | cut -d'&' -f1 | xargs | tr -d '\n' > revdate.out
+cat "$1"/revisions.tex | tail -n 1 | cut -d'&' -f1 | xargs | tr -d '\n' > revdate.out

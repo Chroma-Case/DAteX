@@ -1,1 +1,1 @@
-cat "$1"/revisions.tex | cut -d'&' -f2 | xargs | tr -d '\n' > version.out
+cat "$1"/revisions.tex | tail -n 1 | cut -d'&' -f2 | xargs | tr -d '\n' > version.out
