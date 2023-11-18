@@ -15,4 +15,7 @@ Pour chaque changement commit fait sur chaque branche, les vérifications suivan
 Ces vérifications permettent d’assurer que le nouveau code soit valide, et ne ‘casse’ pas la production.
 La validation de chacune de ces étapes pour chaque composant du projet est nécessaire avant de pouvoir fusionner une branche sur main, et ainsi créer une release du projet.
 
+Lorsque toutes ces verifications sont faites et validées, le code est deployé dans un environnement de pre-production disponible \url{https://nightly.chroma.octohub.app}
+Tous les mois, le code est deployé sur un environment de production disponible sur \url{https://chroma.octohub.app}
+
 Le choix des GitHub Actions pour gérer la CI se justifie par leur facilité d'utilisation et leur integration facile avec les issues, pour traquer leur avancement.
