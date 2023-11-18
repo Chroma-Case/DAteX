@@ -1,6 +1,6 @@
-Le code source du server est dans le dossier \texttt{./back}. Le serveur est développé en TypeScript, avec le framework NestJS.
+Le code source du server est dans le dossier \texttt{./back}. Le serveur est développé en TypeScript, avec le framework NestJS. Ce dernier a ete choisit car il permet de gerer facilement et rapidement des CRUD.
 \\\\
-L’ORM utilisé est Prisma. La définition des schéma se trouve dans \texttt{./prisma/schema.prisma}. (cf. Section “Base de données”).
+L’ORM utilisé est Prisma. La définition des schéma se trouve dans \texttt{./prisma/schema.prisma}. (cf. Section “Base de données”). L'ORM a été choisit car il permet de maintenir une type-safety tout le long de l'utilisation des données extraites de la BDD
 \\\\
 L’application est basée sur l'injection de dépendances. Les modules sont les suivants:
 
@@ -23,6 +23,6 @@ Le \texttt{PrismaModule} est chargé de la connexion avec la base de données. L
 \\\\
 La documentation de l’API du serveur se présente sous la forme d’un Swagger accessible depuis \url{https://nightly.chroma.octohub.app/api/api}
 \\\\
-La gestion des paquets se fait avec NPM.
+La gestion des paquets se fait avec NPM, car il est plus facilement utilisable que yarn pour NestJS.
 \\\\
 Les tests du serveur sont des tests End-To-End (E2E) faits en Robot, qui testent les méthodes de CRUD (Creation, Read, Update, Delete) des controllers. 

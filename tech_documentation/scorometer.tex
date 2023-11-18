@@ -1,6 +1,6 @@
 Le code source du scorometer est dans le dossier \texttt{./scorometer}.
 \\\\
-C’est un serveur de websocket qui utilise websocketd et développé en python.
+C’est un serveur de websocket qui utilise websocketd et développé en python. La raison de ce choix sont la facilité de development, et le grand support des librairies. 
 Websocket est un outil qui permet de faire un serveur de websocket en utilisant la stdin et stdout d’un autre programme, concrètement le code en python a seulement besoin de read la stdin pour avoir les nouveaux messages et écrire sur la sortie standard pour en envoyer.
 \\\\
 Pour parser les différents types de messages que le client front-end peut envoyer, on utilise la fonction \texttt{getMessage} qui renvoie une union de types des messages disponibles. Il suffit ensuite de match sur le résultat de \texttt{getMessage} en fonction du type de message qu’on veut gérer.

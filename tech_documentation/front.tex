@@ -1,19 +1,18 @@
 Le code source de l’application front est dans le  dossier \verb|./front|.
-L’application Front-end est développée en React-Native, bootstrapé avec Expo.
+L’application Front-end est développée en React-Native, bootstrapé avec Expo. Ce sont les seules technologies stables permettant d'avoir une seule code-base pour un projet à la foix web et mobile. De plus, de nombreuses librairies tierces sont disponibles. 
 \\\\
-Concernant les communications avec l’API, les requêtes sont encapsulées dans le fichier API.ts. Les requêtes passent par les fonctions utilitaires de react-query (ex: \verb|useQuery|) qui permet de gérer facilement les états de chargement et d’erreurs.
+Concernant les communications avec l’API, les requêtes sont encapsulées dans le fichier API.ts. Les requêtes passent par les fonctions utilitaires de react-query (ex: \verb|useQuery|) qui permet de gérer facilement les états de chargement et d’erreurs, dans un paradigme réactif.
 \\\\
-L’application utilise un store Redux pour persister, rehydrater, et hook-er des paramètres de connexion (ex: access token) et les paramètres utilisateurs (thème, language).
+L’application utilise un store Redux pour persister, rehydrater, et hook-er des paramètres de connexion (ex: access token) et les paramètres utilisateurs (thème, language). Cette librairie est tres populaire et stable. 
 \\\\
 L’identité visuelle et le style associés sont mis en place grâce à la bibliothèque de style native-base. La configuration du thème est dans Theme.tsx. Le hook dans \verb|./hooks/colorScheme.ts| permet d’accéder à la configuration du thème (clair ou foncé) en fonction des paramètres de l’application et du navigateur.
 \\\\
 La navigation est gérée par react-navigation. Le fichier \verb|Navigation.tsx| met en place les routes disponibles en fonction de l’état de connexion de l’utilisateur (anonyme ou connecté).
 \\\\
-Les types des réponses de l’API sont validées au runtime grâce à la bibliothèque YUP. Les validateurs et modèles associées sont dans le dossier \verb|./models|.
+Les types des réponses de l’API sont validées au runtime grâce à la bibliothèque YUP. Les validateurs et modèles associées sont dans le dossier \verb|./models|. Cette librairie a ete choisie car elle est facile d'utilisation, d'integration et à maintenir dans le projet.
 \\\\
 Le support des traductions (Français, Anglais, Espagnol) sont faites avec le package react-i18n. Les valeurs des traductions sont dans le dossier \verb|./i18n|.
 \\\\
-Concernant la connexion au piano MIDI, l’application utilise l’API MIDI supportée par le navigateur.
-L’affichage de la partition est faite avec le package OpenSheetMediaDisplay.
+Concernant la connexion au piano MIDI, l’application utilise l’API MIDI supportée par le navigateur et les mobiles.
 \\\\
-La gestion des paquets se fait avec Yarn.
+La gestion des paquets se fait avec Yarn, car il permet une meilleure gestion des sous-dependences que npm.
