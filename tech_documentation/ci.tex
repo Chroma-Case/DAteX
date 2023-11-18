@@ -1,9 +1,14 @@
 Pour chaque changement commit fait sur chaque branche, les vérifications suivantes sont faites pour chaque composants du projet, via un GitHub Action (le fichier associé se trouve dans \verb|./.github/workflows/CI.yml|):
 
 \begin{itemize}
-	\item Build
-	\item Vérification de la norme (Linter et Prettier)
-	\item Exécutions des tests
+	\item Build du Server
+	\item Build du Scorometer
+	\item Build du Front
+	\item Vérification de la norme (Linter et Prettier) du Server
+	\item Vérification de la norme du Front
+	\item Vérification de la norme du Scorometer
+	\item Exécutions des tests du Server
+	\item Exécutions des tests du Tests
 \end{itemize}
 
 
