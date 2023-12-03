@@ -1,4 +1,4 @@
-Le code source du server est dans le dossier \texttt{./back}. Le serveur est développé en TypeScript, avec le framework NestJS. Ce dernier a ete choisit car il permet de gerer facilement et rapidement des CRUD.
+Le code source du server est dans le dossier \texttt{./back}. Le serveur est développé en TypeScript, avec le framework NestJS. Ce dernier a été choisit, car il permet de gérer facilement et rapidement des CRUD.
 
 \subsection*{Relation avec la base de données}
 L’ORM utilisé est Prisma. La définition des schéma se trouve dans \texttt{./prisma/schema.prisma}. (cf. Section “Base de données”). L'ORM a été choisit car il permet de maintenir une type-safety tout le long de l'utilisation des données extraites de la BDD
@@ -20,7 +20,7 @@ L’application est basée sur l'injection de dépendances. Les modules sont les
 	\item \texttt{HistoryModule}
 \end{itemize}
 \  \\ % Forcing a line jump after list
-Excepté pour le \texttt{PrismaModule} et le \texttt{AuthModule}, chaque module expose un controller et un service de type CRUD.
+Excepté pour le \texttt{PrismaModule} et le \texttt{AuthModule}, chaque module expose un controlleur et un service de type CRUD.
 Le \texttt{PrismaModule} est chargé de la connexion avec la base de données. Le \texttt{AuthModule} est responsable de l'authentification de l’utilisateur qui fait la requête en utilisant un JWT fourni avec cette dernière.
 
 \subsection*{API}
@@ -37,11 +37,11 @@ L'API du back-end propose les routes suivantes
 	\item \verb|/auth/guest|: Se connecter en tant qu'invité
 	\item \verb|/auth/me|: Récupérer les informations de l'utilisateur authentifié
 	\item \verb|/auth/me/picture|: Récupérer l'avatar de l'utilisateur authentifié
-	\item \verb|/auth/me/settings|: Récupérer les préferences de l'utilisateur authentifié
+	\item \verb|/auth/me/settings|: Récupérer les préférences de l'utilisateur authentifié
 	\item \verb|/song|: Récupérer toutes les chansons du catalogue
 	\item \verb|/song/{id}|: Récupérer une chanson du catalogue
 	\item \verb|/song/{id}/midi|: Récupérer le fichier midi d'une chanson
-	\item \verb|/song/{id}/musicXml|: Récupérer le fichier musicXml d'une chanson
+	\item \verb|/song/{id}/musicXml|: Récupérer le fichier MusicXml d'une chanson
 	\item \verb|/song/{id}/illustration|: Récupérer l'illustration d'une chanson
 	\item \verb|/song/{id}/history|: Récupérer l'historique de partie sur une chanson
 	\item \verb|/history|(GET): Récupérer l'historique de partie de l'utilisateur authentifié
@@ -54,7 +54,7 @@ L'API du back-end propose les routes suivantes
 	\item \verb|/artist/{id}/illustration|: Récupérer l'illustration d'un artiste
 	\item \verb|/search/songs/{query}|: Rechercher une chanson, basé sur son nom
 	\item \verb|/search/genres/{query}|: Rechercher un genre, basé sur son nom
-	\item \verb|/search/artists/{query}|: Rechercher un artiste , basé sur son nom
+	\item \verb|/search/artists/{query}|: Rechercher un artiste, basé sur son nom
 \end{itemize}
 
 La documentation de l’API du serveur se présente sous la forme d’un Swagger accessible depuis \url{https://chroma.octohub.app/api/api}
@@ -63,4 +63,4 @@ La documentation de l’API du serveur se présente sous la forme d’un Swagger
 La gestion des paquets se fait avec NPM, car il est plus facilement utilisable que yarn pour NestJS.
 
 \subsection*{Tests}
-Les tests du serveur sont des tests End-To-End (E2E) faits en Robot, qui testent les méthodes de CRUD (Creation, Read, Update, Delete) des controllers. 
+Les tests du serveur sont des tests End-To-End (E2E) faits en Robot, qui testent les méthodes de CRUD (Creation, Read, Update, Delete) des controlleurs. 

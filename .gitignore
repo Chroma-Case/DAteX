@@ -11,3 +11,4 @@ _minted*
 *.lof
 *.a*
 *.ist
+.vscode/**

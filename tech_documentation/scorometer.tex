@@ -1,17 +1,17 @@
-Le code source du scorometer est dans le dossier \texttt{./scorometer}.
+Le code source du Scorometer est dans le dossier \texttt{./scorometer}.
 
 \subsection*{Architecture}
-C’est un serveur de websocket qui utilise websocketd et développé en python. La raison de ce choix sont la facilité de development, et le grand support des librairies. 
-Websocket est un outil qui permet de faire un serveur de websocket en utilisant la stdin et stdout d’un autre programme, concrètement le code en python a seulement besoin de read la stdin pour avoir les nouveaux messages et écrire sur la sortie standard pour en envoyer.
+C’est un serveur de websocket qui utilise websocketd et développé en python. La raison de ce choix sont la facilité de développement, et le grand support des librairies. 
+Websocket est un outil qui permet de faire un serveur de websocket en utilisant la stdin et stdout d’un autre programme, concrètement le code en python a seulement besoin de lire la stdin pour avoir les nouveaux messages et écrire sur la sortie standard pour en envoyer.
 
 \subsection*{Parsing}
 Pour parser les différents types de messages que le client front-end peut envoyer, on utilise la fonction \texttt{getMessage} qui renvoie une union de types des messages disponibles. Il suffit ensuite de match sur le résultat de \texttt{getMessage} en fonction du type de message qu’on veut gérer.
 
 \subsection*{Réponses}
-Le Scorometer commence en essayant de récupérer le message de start envoyé par le client front-end qui spécifie l’utilisateur, l’id de la chanson et le mode. Ensuite, il récupère le midi de la chanson en utilisant l’API. Avec le fichier midi, on le parse dans une classe Partition qu’on va utiliser pour stocker les notes de celle-ci. Ensuite il suffit de run la fonction \texttt{handleMessage} jusqu'à la fin de la partie qui va faire des choses différentes en fonction de si le message est de type \verb|note_on|, \verb|note_off|, \verb|pause|, \verb|end|.
+Le Scorometer commence en essayant de récupérer le message de start envoyé par le client front-end qui spécifie l’utilisateur, l’id de la chanson et le mode. Ensuite, il récupère le midi de la chanson en utilisant l’API. Avec le fichier midi, on le parse dans une classe Partition qu’on va utiliser pour stocker les notes de celle-ci. Ensuite il suffit d'appeler la fonction \texttt{handleMessage} jusqu'à la fin de la partie qui va faire des choses différentes en fonction de si le message est de type \verb|note_on|, \verb|note_off|, \verb|pause|, \verb|end|.
 
 \subsection*{Documentation complète}
 La documentation de l’API du Scorometer se trouve dans le fichier \verb|asyncapi.spec.yml|. C’est un fichier Yaml, mais il est possible d’avoir un rendu style Swagger en faisant un copié-collé dans l'onglet Editor sur le site \url{https://studio.asyncapi.com/}.
 
 \subsection*{Tests}
-Pour les tests, on peut enlever la partie websocketd et appeler le code python directement ce qui permet de faire des tests sans passer par un serveur de websocket et des requêtes http mais seulement tester l'entrée et la sortie standard en bash avec un fichier d’input que le client enverrait et un fichier d’output qui est ce que le scorometer doit renvoyer. Il suffit juste de tester ce fichier d’output avec ce que renvoie actuellement le scorometer.
+Pour les tests, on peut enlever la partie websocketd et appeler le code python directement ce qui permet de faire des tests sans passer par un serveur de websocket et des requêtes http mais seulement tester l'entrée et la sortie standard en bash avec un fichier d’input que le client enverrait et un fichier d’output qui est ce que le Scorometer doit renvoyer. Il suffit de tester ce fichier d’output avec ce que renvoie actuellement le Scorometer.

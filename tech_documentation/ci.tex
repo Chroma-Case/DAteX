@@ -1,6 +1,6 @@
 
 \subsection{Workflows}
-	Pour chaque changement commit fait sur chaque branche, les vérifications suivantes sont faites pour chaque composants du projet, via un GitHub Action (le fichier associé est \verb|./.github/workflows/CI.yml|):
+	Pour chaque changement commit fait sur chaque branche, les vérifications suivantes sont faites pour chaque composant du projet, via un GitHub Action (le fichier associé est \verb|./.github/workflows/CI.yml|):
 
 	\begin{itemize}
 		\item Build du Server
@@ -10,14 +10,15 @@
 		\item Vérification de la norme du Front
 		\item Vérification de la norme du Scorometer
 		\item Exécutions des tests du Server
-		\item Exécutions des tests du Tests
+		\item Exécutions des tests du Scorometer
+		\item Exécutions des tests du Front
 	\end{itemize}
 
 	Ces vérifications permettent d’assurer que le nouveau code soit valide, et ne ‘casse’ pas la production.
 	La validation de chacune de ces étapes pour chaque composant du projet est nécessaire avant de pouvoir fusionner une branche sur main, et ainsi créer une release du projet.
 
-\subsection{Deploiement}
-	Lorsque toutes ces verifications sont faites et validées, le code est deployé dans un environnement de pre-production disponible \url{https://nightly.chroma.octohub.app}
-	Tous les mois, le code est deployé sur un environment de production disponible sur \url{https://chroma.octohub.app}. Pour ces deux environment, la mise en place des differents services se fait en utilisant le \verb|docker-compose.prod.yml| à la racine du dépot.
+\subsection{Déploiement}
+	Lorsque toutes ces vérifications sont faites et validées, le code est déployé dans un environnement de préproduction disponible \url{https://nightly.chroma.octohub.app}
+	Tous les mois, le code est déployé sur un environnement de production disponible sur \url{https://chroma.octohub.app}. Pour ces deux environnements, la mise en place des différents services se fait en utilisant le \verb|docker-compose.prod.yml| à la racine du dépôt.
 	\\\\
-	Le choix des GitHub Actions pour gérer la CI se justifie par leur facilité d'utilisation et leur integration facile avec les issues, pour traquer leur avancement.
+	Le choix des GitHub Actions pour gérer la CI se justifie par leur facilité d'utilisation et leur intégration facile avec les issues, pour traquer leur avancement.

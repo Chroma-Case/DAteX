@@ -1,26 +1,26 @@
 Le code source de l’application front est dans le  dossier \verb|./front|.
-L’application Front-end est développée en React-Native, bootstrapé avec Expo. Ce sont les seules technologies stables permettant d'avoir une seule code-base pour un projet à la foix web et mobile. De plus, de nombreuses librairies tierces sont disponibles.
+L’application Front-end est développée en React-Native, bootstrapé avec Expo. Ce sont les seules technologies stables permettant d'avoir une seule codebase pour un projet à la fois web et mobile. De plus, de nombreuses librairies tierces sont disponibles.
 
 \subsection*{API}
 Concernant les communications avec l’API, les requêtes sont encapsulées dans le fichier API.ts. Les requêtes passent par les fonctions utilitaires de react-query (ex: \verb|useQuery|) qui permet de gérer facilement les états de chargement et d’erreurs, dans un paradigme réactif.
 
 \subsection*{Validation}
-Les types des réponses de l’API sont validées au runtime grâce à la bibliothèque YUP. Les validateurs et modèles associées sont dans le dossier \verb|./models|. Cette librairie a ete choisie car elle est facile d'utilisation, d'integration et à maintenir dans le projet.
+Les types des réponses de l’API sont validées au runtime grâce à la bibliothèque YUP. Les validateurs et modèles associées sont dans le dossier \verb|./models|. Cette librairie a été choisie car elle est facile d'utilisation, d'intégration et à maintenir dans le projet.
 
-\subsection*{Etat et Peristance}
-L’application utilise un store Redux pour persister, rehydrater, et hook-er des paramètres de connexion (ex: access token) et les paramètres utilisateurs (thème, language). Cette librairie est tres populaire et stable. 
+\subsection*{État et Persistance}
+L’application utilise un store Redux pour persister, réhydrater, et hook-er des paramètres de connexion (ex: access-token) et les paramètres utilisateurs (thème, langage). Cette librairie est très populaire et stable. 
 
 \subsection*{Thème}
 L’identité visuelle et le style associés sont mis en place grâce à la bibliothèque de style native-base. La configuration du thème est dans Theme.tsx. Le hook dans \verb|./hooks/colorScheme.ts| permet d’accéder à la configuration du thème (clair ou foncé) en fonction des paramètres de l’application et du navigateur.
 
 \subsection*{Navigation}
-La navigation est gérée par react-navigation. Le fichier \verb|Navigation.tsx| met en place les routes disponibles en fonction de l’état de connexion de l’utilisateur (anonyme ou connecté).
+La navigation est gérée par react-navigation. Le fichier \verb|Navigation.tsx| met en place les routes disponibles en fonction de l’État de connexion de l’utilisateur (anonyme ou connecté).
 
 \subsection*{Traductions}
 Le support des traductions (Français, Anglais, Espagnol) sont faites avec le package react-i18n. Les valeurs des traductions sont dans le dossier \verb|./i18n|.
 
-\subsection*{Connection au Piano MIDI}
+\subsection*{Connexion au Piano MIDI}
 Concernant la connexion au piano MIDI, l’application utilise l’API MIDI supportée par le navigateur et les mobiles.
 
 \subsection*{Packet Management}
-La gestion des paquets se fait avec Yarn, car il permet une meilleure gestion des sous-dependences que npm.
+La gestion des paquets se fait avec Yarn, car il permet une meilleure gestion des sous-dépendances que npm.
